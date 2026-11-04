@@ -1,0 +1,6 @@
+@ERP.Simulado_HostAddress = http://localhost:5005
+
+GET {{ERP.Simulado_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
