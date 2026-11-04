@@ -66,4 +66,20 @@ private static readonly List<Produto> Produtos = new List<Produto>
          novoProduto
     );
 }
+     [HttpPut("{id}")]
+    public IActionResult Put(int id, [FromBody] Produto produtoAtualizado)
+{
+    var produtoExistente = Produtos.FirstOrDefault(p => p.Id == id);
+
+    if (produtoExistente == null)
+    {
+        return NotFound();
+    }
+
+    produtoExistente.Nome = produtoAtualizado.Nome;
+    produtoExistente.Marca = produtoAtualizado.Marca;
+    produtoExistente.Preco = produtoAtualizado.Preco;
+
+    return Ok(produtoExistente);
+}
 }
